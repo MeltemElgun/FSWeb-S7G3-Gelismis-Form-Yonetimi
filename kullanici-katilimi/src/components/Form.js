@@ -84,7 +84,7 @@ function Form() {
     };
     setformData(nextState);
   };
-
+  console.log(formData);
   useEffect(() => {
     formSchema.isValid(formData).then((valid) => setDisabled(!valid));
   }, [formData]);
@@ -102,6 +102,7 @@ function Form() {
               id="ffirstname"
               value={formData.isim}
               name="isim"
+              data-cy="newIsım"
             />{" "}
             <div className="error">{formError?.isim}</div>
           </div>
@@ -113,6 +114,7 @@ function Form() {
               id="flastname"
               value={formData.soyIsim}
               name="soyIsim"
+              data-cy="newSoyisim"
             />{" "}
             <div className="error">{formError?.soyIsim}</div>
           </div>
@@ -124,6 +126,7 @@ function Form() {
               id="femail"
               value={formData.email}
               name="email"
+              data-cy="newEmail"
             />{" "}
             <div className="error">{formError?.email}</div>
           </div>
@@ -135,6 +138,7 @@ function Form() {
               id="fsifre"
               value={formData.sifre}
               name="sifre"
+              data-cy="newSifre"
             />{" "}
             <div className="error">{formError?.sifre}</div>
           </div>
@@ -146,13 +150,19 @@ function Form() {
                 id="fsartlar"
                 value={formData.sartlar}
                 name="sartlar"
+                data-cy="newSartlar"
               />
             </label>
             <span>Kullanım koşullarını kabul ediyorum</span>{" "}
             <div className="error">{formError?.sartlar}</div>
           </div>
 
-          <button type="submit" className="submitBtn" disabled={disabled}>
+          <button
+            type="submit"
+            className="submitBtn"
+            disabled={disabled}
+            data-cy="newButton"
+          >
             Gönder
           </button>
         </fieldset>
